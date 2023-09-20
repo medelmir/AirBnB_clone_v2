@@ -5,6 +5,7 @@ from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 import os
 
+
 class City(BaseModel, Base):
     """
     Represent a City class that inherits from Base.
@@ -23,8 +24,8 @@ class City(BaseModel, Base):
     ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
     state_id = Column(
         String(60),
-        nullable=False,
-        ForeignKey=('states.id')
+        ForeignKey('states.id'),
+        nullable=False
     ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
     places = relationship(
         'Place',
