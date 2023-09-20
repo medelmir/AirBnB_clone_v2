@@ -59,13 +59,13 @@ class Place(BaseModel, Base):
 
     city_id = Column(
         String(60),
-        nullable=False,
-        ForeignKey('cities.id')
+        ForeignKey('cities.id'),
+        nullable=False
     ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
     user_id = Column(
         String(60),
-        nullable=False,
-        ForeignKey('users.id')
+        ForeignKey('users.id'),
+        nullable=False
     ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
     name = Column(
         String(128),
@@ -85,7 +85,7 @@ class Place(BaseModel, Base):
         nullable=False,
         default=0
     ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else 0
-    max_guest = = Column(
+    max_guest = Column(
         Integer,
         nullable=False,
         default=0

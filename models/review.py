@@ -12,13 +12,13 @@ class Review(BaseModel, Base):
 
     place_id = Column(
         String(60),
-        nullable=False,
-        ForeignKey('places.id')
+        ForeignKey('places.id'),
+        nullable=False
     ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
     user_id = Column(
         String(60),
-        nullable=False,
-        ForeignKey('users.id')
+        ForeignKey('users.id'),
+        nullable=False
     ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
     text = Column(
         String(1024),
