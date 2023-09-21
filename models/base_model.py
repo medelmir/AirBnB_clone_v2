@@ -2,7 +2,7 @@
 """This module defines a base class for all models in our hbnb clone"""
 import uuid
 from datetime import datetime
-from sqlalchemy import Column, String, DATETIME
+from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 import os
 
@@ -19,12 +19,12 @@ class BaseModel:
         unique=True
     )
     created_at = Column(
-        DATETIME,
+        DateTime,
         nullable=False,
         default=datetime.utcnow()
     )
     updated_at = Column(
-        DATETIME,
+        DateTime,
         nullable=False,
         default=datetime.utcnow()
     )

@@ -27,7 +27,6 @@ class State(BaseModel, Base):
             backref="state",
             cascade="all, delete, delete-orphan"
         )
-
     else:
         @property
         def cities(self):

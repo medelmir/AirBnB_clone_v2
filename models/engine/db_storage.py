@@ -91,12 +91,12 @@ class DBStorage():
             self.__session.query(
                 type(obj)).filter(type(obj).id == obj.id).delete(
                 synchronize_session=False
-                )
+            )
 
     def reload(self):
         """Reloads the database session"""
         Base.metadata.create_all(self.__engine)
-        sessionfact = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        session_fact = sessionmaker(bind=self.__engine, expire_on_commit=False)
         self.__session = scoped_session(session_fact)()
 
     def close(self):
